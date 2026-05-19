@@ -3,25 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>Techy-X</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background-color: #ffffff;
-      color: #000000;
+      color: #000;
     }
 
+    /* Header */
     header {
-      padding: 20px 40px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      padding: 15px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #eee;
+      z-index: 1000;
     }
 
-    header h1 {
-      font-size: 24px;
-      font-weight: bold;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 35px;
     }
 
     nav a {
@@ -31,9 +48,14 @@
       font-size: 14px;
     }
 
+    nav a:hover {
+      opacity: 0.6;
+    }
+
+    /* Hero */
     .hero {
+      padding: 160px 20px 120px;
       text-align: center;
-      padding: 120px 20px;
     }
 
     .hero h2 {
@@ -50,62 +72,173 @@
 
     .hero button {
       margin-top: 40px;
-      padding: 15px 30px;
+      padding: 15px 35px;
       font-size: 16px;
       border: none;
       background-color: black;
       color: white;
-      cursor: pointer;
       border-radius: 30px;
+      cursor: pointer;
     }
 
-    .section {
-      padding: 80px 40px;
+    .hero button:hover {
+      opacity: 0.85;
+    }
+
+    /* Sections */
+    section {
+      padding: 120px 40px;
       text-align: center;
-      background-color: #f7f7f7;
     }
 
-    .section h3 {
+    .gray {
+      background-color: #f6f6f6;
+    }
+
+    section h3 {
       font-size: 32px;
       margin-bottom: 20px;
     }
 
-    footer {
-      text-align: center;
+    section p {
+      font-size: 16px;
+      color: #555;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* Products */
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 50px;
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 20px;
       padding: 30px;
+      width: 250px;
+    }
+
+    .card h4 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px;
+      text-align: center;
       font-size: 14px;
       color: #777;
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      .hero h2 {
+        font-size: 36px;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <header>
-  <h1>Techy-X</h1>
+  <div class="logo">
+    <img src="logo.png" alt="Techy-X Logo">
+  </div>
   <nav>
-    <a href="#">Home</a>
-    <a href="#">Products</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<section class="hero">
+<!-- HOME -->
+<div class="hero" id="home">
   <h2>Future. Powered by Tech.</h2>
   <p>
-    Techy-X creates clean, powerful technology designed to make your life smarter, faster, and better.
+    Techy-X builds clean, powerful technology that helps people move faster, think smarter, and live better.
   </p>
-  <button>Explore Techy-X</button>
+  <button onclick="goToExplore()">Explore Techy-X</button>
+</div>
+
+<!-- EXPLORE -->
+<section class="gray" id="explore">
+  <h3>Designed for the Future</h3>
+  <p>
+    Minimal design. Maximum performance. Every Techy-X product is built with precision and innovation.
+  </p>
 </section>
 
-<section class="section">
-  <h3>Designed for the Future</h3>
-  <p>Minimal design. Maximum performance. Built with innovation at its core.</p>
+<!-- PRODUCTS -->
+<section id="products">
+  <h3>Our Products</h3>
+  <div class="products">
+    <div class="card">
+      <h4>Techy-X Phone</h4>
+      <p>Fast. Secure. Beautifully designed.</p>
+    </div>
+    <div class="card">
+      <h4>Techy-X Laptop</h4>
+      <p>Powerful performance. Ultra-thin design.</p>
+    </div>
+    <div class="card">
+      <h4>Techy-X Wear</h4>
+      <p>Smart technology for everyday life.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="gray" id="about">
+  <h3>About Techy-X</h3>
+  <p>
+    Techy-X creates premium technology with a focus on simplicity, innovation, and human-centered design.
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h3>Contact Us</h3>
+  <p>
+    Email: <a href="mailto:contact@techy-x.com">contact@techy-x.com</a><br><br>
+    Phone: <a href="tel:+1234567890">+1234567890</a><br><br>
+    Follow us for updates and new releases.
+  </p>
 </section>
 
 <footer>
   © 2026 Techy-X. All rights reserved.
 </footer>
 
+<script>
+  function goToExplore() {
+    document.getElementById("explore").scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+</script>
+
 </body>
-</html>
+</html>     
+      
